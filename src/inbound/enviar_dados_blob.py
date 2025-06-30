@@ -5,6 +5,7 @@ import json
 from azure.core.exceptions import AzureError
 from dotenv import load_dotenv
 import os
+import time
 
 env_path = os.path.join(os.getcwd(), '.env')
 load_dotenv(dotenv_path=env_path)
@@ -41,6 +42,8 @@ try:
         container_client.create_container()
         print(f"Container '{CONTAINER_NAME}' criado com sucesso.")
     
+    tempo_espera_segundos = 15 * 60 
+
     # Enviar dados
     for i, registro in enumerate(dados):
         try:
@@ -54,6 +57,10 @@ try:
             # Fazer upload
             blob_client.upload_blob(json_data, overwrite=True)
             print(f"[{i+1}/{len(dados)}] Arquivo {blob_name} enviado com sucesso!")
+
+            if i < len(dados) - 1: 
+                print(f"Aguardando {tempo_espera_segundos / 60} minutos antes do próximo envio...")
+                time.sleep(tempo_espera_segundos)
             
         except AzureError as e:
             print(f"Erro no envio do registro {id_envio}: {str(e)}")
