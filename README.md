@@ -143,7 +143,17 @@ Para system tables temos algumas tabelas bem interessantes como as que estão na
 <p align="left">
 </p>
 
-Na pasta grainlogistic\src\monitoring foi criado 3 tipos de dashboards no próprio databricks utilizando as system tables para monitorar:
+Na pasta grainlogistic\src\monitoring foi criado 4 tipos de dashboards no próprio databricks utilizando as system tables para monitorar:
 - Consumo de cluster
 - Linhagem de dados nas tabelas do Unity Catalog
 - Monitoramento de Workflows
+- Privilegios de tabelas e volumes
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/857c39e4-92d3-4c48-916f-951fe24373e0" alt="painel">
+  <p><b>Painel Job</b></p>
+</div>
+
+<p align="left">
+</p>
+
